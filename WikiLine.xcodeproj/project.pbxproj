@@ -6,10 +6,15 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		00CD09FC16F8F4E2002ED248 /* WikiLine.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = WikiLine.py; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		00CD09F116F8F466002ED248 = {
 			isa = PBXGroup;
 			children = (
+				00CD09FC16F8F4E2002ED248 /* WikiLine.py */,
 			);
 			sourceTree = "<group>";
 		};
@@ -22,7 +27,8 @@
 			buildConfigurationList = 00CD09F916F8F466002ED248 /* Build configuration list for PBXLegacyTarget "WikiLine" */;
 			buildPhases = (
 			);
-			buildToolPath = /usr/bin/python;
+			buildToolPath = /Library/Frameworks/Python.framework/Versions/2.7/bin/python;
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = WikiLine;
@@ -152,6 +158,7 @@
 				00CD09FB16F8F466002ED248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
