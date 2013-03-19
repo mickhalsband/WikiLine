@@ -28,8 +28,10 @@ class WikiLine:
     def parse_article(self, xmldoc):
         debug("parse_article(" + str(self) + "," + str(xmldoc) + ")")
         title = xmldoc.getElementsByTagName('title')
+
         for e in title:
             print e
+            #print e.Value
             if e.attributes.__len__() > 0:
                 for attr in e.attributes:
                     print attr
@@ -37,14 +39,16 @@ class WikiLine:
                 print "no attributes for " + str(e)
 
         #debug("title is '" + title[0].attributes['name'].value + "'")
-#        
-#        itemlist = xmldoc.getElementsByTagName('Born')
-#        print "***itemlist length: " + str(len(itemlist))
-#        
-#        if (itemlist.__len__() > 0):
-#            print itemlist[0].attributes['name'].value
-#        for s in itemlist :
-#            print s.attributes['name'].value
+
+        tag = 'th'
+        itemlist = xmldoc.getElementsByTagName(tag)
+        debug ("itemlist length: " + str(len(itemlist)))
+                    
+        debug ("iterating elements by tag '" + tag + "'")
+        for e in itemlist[0:1] :
+            print "element is: " + str(e)
+            print "element attributes: " + str(e.attributes)
+#          print s.attributes['name'].value
 
         #print xmldoc.toxml()
 
