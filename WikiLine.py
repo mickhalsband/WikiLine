@@ -3,22 +3,24 @@ import sys
 import urllib2
 import re
 from xml.dom import minidom
+import log
 
-def enum(**enums):
-	return type('Enum', (), enums)
-
-log_type = enum(INFO="INFO", DEBUG="DEBUG", WARNING="WARN", ERROR="ERROR")
-product_mode="release"
-def do_log(type, str):
-	print "***" + type + ": " + str
-
-
-
-def log(str, type=None):
-	if (type == log_type.WARNING or type == log_type.ERROR)\
-	or (type == log_type.DEBUG and product_mode == "debug")\
-	or (type == log_type.INFO):
-		do_log(type,str)
+#def enum(**enums):
+#	return type('Enum', (), enums)
+#
+#log_type = enum(INFO="INFO", DEBUG="DEBUG", WARNING="WARN", ERROR="ERROR")
+#product_mode="release"
+#def do_log(type, str):
+#	print "***" + type + ": " + str
+#
+#def log(str, type=None):
+#	if (type == log_type.WARNING or type == log_type.ERROR)\
+#	or (type == log_type.DEBUG and product_mode == "debug")\
+#	or (type == log_type.INFO):
+#		do_log(type,str)
+#
+#def log_info(str):
+#	log(str, log_type.INFO)
 
 class WikiLine:
 	def __init__(self):
@@ -34,8 +36,8 @@ class WikiLine:
 		print "reading url '%s'" %url
 		infile = self.opener.open(url)
 		page = infile.read()
-		log("read page length: " + str(page.__len__()), log_type.INFO)
-		log("page beings with: " + page[0:256])
+		log.log_info("read page length: " + str(page.__len__()))
+		log.log("page beings with: " + page[0:256])
 		xmldoc = minidom.parseString(page)
 		#print ("xml length: " + str(xmldoc.__len__()))
 		infile.close()
@@ -43,29 +45,31 @@ class WikiLine:
 
 	def parse_article(self, xmldoc):
 		print "parsing XML"
-		log("parse_article(" + str(self) + "," + str(xmldoc) + ")")
+		log.log("parse_article(" + str(self) + "," + str(xmldoc) + ")")
 		for title in xmldoc.getElementsByTagName("title"):
-			log("title is: " + title.firstChild.nodeValue, log_type.INFO)
+			log.log_info("title is: " + title.firstChild.nodeValue)
 		
-		vcard_parser = VCardParser()
-
 		# TODO: should assert only one vcard or something, i guess...
-		vcard = vcard_parser.get_vcards(xmldoc).next()
+		vcard = VCardParser().get_vcards(xmldoc).next()
 
 		# find 'Born' values in vcard
-		print "Born : " + self.find_born(vcard)
+		print "Calling 'parse_class'"
+		for tr in vcard.getElementsByTagName("tr"):
+			 self.parse_class(tr)
+
+		#print "Born : " + self.find_born(vcard)
 							
 		return
 
 	# should actually read the entire tr class
 	# header is 'Born'
 	# data is the birth date and place
-	def parse_class(self, tr_class):
-		states = enum(LOOKING_FOR_TH=1, LOOKING_FOR_TR=2)
-		state = states.LOOKING_FOR_TH
-		
-		print tr_class
-		
+	def parse_class(self, tr):
+		print "tr class : "# + str(tr)
+		for elem in tr.getElementsByTagName("*"):
+			#print "		elem : " + str(elem)
+			if (elem.nodeName == "th" and elem.firstChild != None and elem.firstChild.nodeValue != None):
+				print "		header : " + elem.firstChild.nodeValue.encode('utf-8')
 
 	# should actually read the entire tr class
 	# header is 'Born'
@@ -82,7 +86,7 @@ class WikiLine:
 					
 				if (child.firstChild.nodeValue != "Born"):
 					continue
-				log("found: " + str(child.firstChild.nodeValue), log_type.INFO)
+				log.log_info("found: " + str(child.firstChild.nodeValue))
 				state = states.LOOKING_FOR_TR
 				continue
 				
@@ -98,7 +102,7 @@ class WikiLine:
 				and child.firstChild.attributes["class"] != "bday"):
 					continue
 
-				log("THIS IS THE BIRDTHDAY MARKUP",log_type.INFO)
+				log.log_info("THIS IS THE BIRDTHDAY MARKUP")
 
 				for bday in child.getElementsByTagName("*"):
 					#1879-03-14
@@ -120,6 +124,28 @@ class VCardParser:
 				table.attributes["class"].value == self.infobox_vcard)
 		return vcards
 
+
+class Log:
+	product_mode="release"
+
+	def __init__(self):
+		self.log_type = self.enum(INFO="INFO", DEBUG="DEBUG", WARNING="WARN", ERROR="ERROR")
+
+	def enum(self,**enums):
+		return type('Enum', (), enums)
+
+	def do_log(self,type, str):
+		print "***" + type + ": " + str
+
+	def log(self, str, type=None):
+		if (type == self.log_type.WARNING or type == self.log_type.ERROR)\
+		or (type == self.log_type.DEBUG and product_mode == "debug")\
+		or (type == self.log_type.INFO):
+			self.do_log(type,str)
+
+	def log_info(self, str):
+		self.log(str, self.log_type.INFO)
+
 #this calls the "main" function when this script is executed
 #"http://en.wikipedia.org/w/index.php?title=Albert_Einstein&printable=yes"
 if __name__ == "__main__":
@@ -127,10 +153,12 @@ if __name__ == "__main__":
 	if len(sys.argv) < 2:
 		sys.exit("Usage: %s [url]" % sys.argv[0])
 
+	log = Log()
 	url = sys.argv[1]
 	
 	print "Starting world..."
 
 	print "	 arg[1] = %s" %sys.argv[1]
+
 	wikiLine = WikiLine()
 	wikiLine.run(url)
