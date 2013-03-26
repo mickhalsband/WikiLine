@@ -7,22 +7,24 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		00CD09FC16F8F4E2002ED248 /* wikiline.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = wikiline.py; sourceTree = "<group>"; };
+		00CD09FC16F8F4E2002ED248 /* wiki_line.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = wiki_line.py; sourceTree = "<group>"; };
 		00F928901701FAED00A2B3CC /* README.rdoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.rdoc; sourceTree = "<group>"; };
 		00F9289117021AF200A2B3CC /* log.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = log.py; sourceTree = "<group>"; };
 		00F9289217021BEC00A2B3CC /* utils.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = utils.py; sourceTree = "<group>"; };
-		00F9289317021E4B00A2B3CC /* wikiparser.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = wikiparser.py; sourceTree = "<group>"; };
+		00F9289317021E4B00A2B3CC /* wiki_parser.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = wiki_parser.py; sourceTree = "<group>"; };
+		00F92894170239D700A2B3CC /* timeline_writer.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = timeline_writer.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		00CD09F116F8F466002ED248 = {
 			isa = PBXGroup;
 			children = (
-				00F9289317021E4B00A2B3CC /* wikiparser.py */,
+				00F92894170239D700A2B3CC /* timeline_writer.py */,
+				00F9289317021E4B00A2B3CC /* wiki_parser.py */,
 				00F9289217021BEC00A2B3CC /* utils.py */,
 				00F9289117021AF200A2B3CC /* log.py */,
 				00F928901701FAED00A2B3CC /* README.rdoc */,
-				00CD09FC16F8F4E2002ED248 /* wikiline.py */,
+				00CD09FC16F8F4E2002ED248 /* wiki_line.py */,
 			);
 			sourceTree = "<group>";
 		};

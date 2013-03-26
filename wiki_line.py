@@ -1,9 +1,12 @@
-#import os
+import os
 import urllib2
 import utils
 import log
 import sys
-from wikiparser import WikiParser
+from wiki_parser import WikiParser
+from timeline_writer import TimelineWriter
+
+from subprocess import call
 
 log = log.Log()
 
@@ -26,7 +29,13 @@ class WikiLine:
 	def run(self, url):
 		print "Running WikiLine..."
 		page = self.read_article(url)
-		WikiParser(page).parse()
+		items = WikiParser(page).parse()
+
+		for item in items:
+			print str(item)
+
+		timeline = TimelineWriter()
+		timeline.write(items)
 
 #this calls the "main" function when this script is executed
 #"http://en.wikipedia.org/w/index.php?title=Albert_Einstein&printable=yes"

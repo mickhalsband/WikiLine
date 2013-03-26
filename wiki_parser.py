@@ -35,13 +35,8 @@ class WikiParser:
 			item = self.parse_class(tr)
 			if (item.name in itemsOfIterest):
 				items.append(item)
-			
-		for item in items:
-			print str(item)
-			
-		#print "Born : " + self.find_born(vcard)
-							
-		return
+				
+		return items
 
 	def get_vcards(self, xmldoc):
 		infobox_vcard = "infobox vcard"
