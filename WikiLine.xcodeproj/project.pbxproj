@@ -8,12 +8,14 @@
 
 /* Begin PBXFileReference section */
 		00CD09FC16F8F4E2002ED248 /* WikiLine.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = WikiLine.py; sourceTree = "<group>"; };
+		00F928901701FAED00A2B3CC /* README.rdoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.rdoc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		00CD09F116F8F466002ED248 = {
 			isa = PBXGroup;
 			children = (
+				00F928901701FAED00A2B3CC /* README.rdoc */,
 				00CD09FC16F8F4E2002ED248 /* WikiLine.py */,
 			);
 			sourceTree = "<group>";

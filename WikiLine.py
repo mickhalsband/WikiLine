@@ -55,8 +55,9 @@ class WikiLine:
 		# find 'Born' values in vcard
 		print "Calling 'parse_class'"
 		for tr in vcard.getElementsByTagName("tr"):
-			 self.parse_class(tr)
-
+			res = self.parse_class(tr)
+			print str(res)
+			
 		#print "Born : " + self.find_born(vcard)
 							
 		return
@@ -68,21 +69,34 @@ class WikiLine:
 		states = enum(SEARCHING_HEADER=1, SEARCHING_DATA=2, DONE=3)
 		state = states.SEARCHING_HEADER
 		
-		print "tr class : "# + str(tr)
+		item = DataItem()
+		
+		#print "tr class : "# + str(tr)
 		for elem in tr.getElementsByTagName("*"):
 			#print "		elem : " + str(elem)
 			if (state == states.SEARCHING_HEADER and \
 				elem.nodeName == "th" and elem.firstChild != None and elem.firstChild.nodeValue != None):
 				state = states.SEARCHING_DATA
-				print "		header : " + elem.firstChild.nodeValue.encode('utf-8')
+				#print "		header : " + elem.firstChild.nodeValue.encode('utf-8')
+				item.name = elem.firstChild.nodeValue.encode('utf-8')
 				continue
 				
 			if (state == states.SEARCHING_DATA):
 				#print "calling recurse"
 				res = self.recurseNode(elem)
-				if (res != None and res != ""):
-					print "		" + res.encode('utf-8')
-
+				ignoreChars = ["(","[","]"]
+				if (res != None and res != "" and not res in ignoreChars):
+					data = res.encode('utf-8')
+					#print "		" + data
+					if (re.search("\d\d\d\d\-\d\d\-\d\d", data) != None or \
+						re.search("...-\d\d\-\d\d\d\d", data) != None):
+						item.date = data
+					else:
+						item.location = data			
+		
+		return item
+		
+	# recurse a given node and return whatever valid data found
 	def recurseNode(self, node):
 		# end recursion
 		if (node.nodeValue != None and node.nodeValue != ""):
@@ -96,50 +110,6 @@ class WikiLine:
 			child = child.nextSibling
 			
 		return None
-		
-
-	# should actually read the entire tr class
-	# header is 'Born'
-	# data is the birth date and place
-	def find_born(self, table):
-		states = enum(LOOKING_FOR_TH=1, LOOKING_FOR_TR=2)
-		state = states.LOOKING_FOR_TH
-		for child in table.getElementsByTagName("*"):
-			if (state == states.LOOKING_FOR_TH):
-				#log(str(child),log_type.DEBUG)
-				if (child.nodeName != "th"):
-					# log("skipping nodeName: " + str(child.nodeName), log_type.DEBUG)
-					continue
-					
-				if (child.firstChild.nodeValue != "Born"):
-					continue
-				log.log_info("found: " + str(child.firstChild.nodeValue))
-				state = states.LOOKING_FOR_TR
-				continue
-				
-			if (state == states.LOOKING_FOR_TR):
-				if (child.nodeName != "td"):
-					continue
-				
-				#log("child: " + str(child),log_type.INFO)
-				#log("child firstChild " + str(child.firstChild),log_type.INFO)
-				#log("child nodeValue: " + str(child.firstChild.nodeValue),log_type.INFO)
-				
-				if ("class" in child.firstChild.attributes.keys() \
-				and child.firstChild.attributes["class"] != "bday"):
-					continue
-
-				log.log_info("THIS IS THE BIRDTHDAY MARKUP")
-
-				for bday in child.getElementsByTagName("*"):
-					#1879-03-14
-					res = re.search("\d\d\d\d\-\d\d\-\d\d", bday.firstChild.nodeValue)
-					if (res == None):
-						continue
-						
-					return bday.firstChild.nodeValue
-	
-				return 0
 
 class VCardParser:
 	infobox_vcard = "infobox vcard"
@@ -151,7 +121,14 @@ class VCardParser:
 				table.attributes["class"].value == self.infobox_vcard)
 		return vcards
 
-
+class DataItem:
+	def __repr__(self):
+		return "{" + self.name + ":" + self.date + ":" + self.location + "}"
+			
+	def __init__(self):
+		self.name = ""
+		self.date = ""
+		self.location = ""
 
 def enum(**enums):
 	return type('Enum', (), enums)
