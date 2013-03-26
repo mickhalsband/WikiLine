@@ -50,17 +50,31 @@ class WikiLine:
 			log.log_info("title is: " + title.firstChild.nodeValue)
 		
 		# TODO: should assert only one vcard or something, i guess...
-		vcard = VCardParser().get_vcards(xmldoc).next()
+		vcard = self.get_vcards(xmldoc).next()
 
 		# find 'Born' values in vcard
 		print "Calling 'parse_class'"
+		items = []
+		itemsOfIterest = ["Born", "Died"]
 		for tr in vcard.getElementsByTagName("tr"):
-			res = self.parse_class(tr)
-			print str(res)
+			item = self.parse_class(tr)
+			if (item.name in itemsOfIterest):
+				items.append(item)
+			
+		for item in items:
+			print str(item)
 			
 		#print "Born : " + self.find_born(vcard)
 							
 		return
+
+	def get_vcards(self, xmldoc):
+		infobox_vcard = "infobox vcard"
+		# find the infobox vcard
+		vcards = (table for table in xmldoc.getElementsByTagName("table")\
+				 if "class" in table.attributes.keys() and \
+				table.attributes["class"].value == infobox_vcard)
+		return vcards
 
 	# should actually read the entire tr class
 	# header is 'Born'
@@ -110,16 +124,6 @@ class WikiLine:
 			child = child.nextSibling
 			
 		return None
-
-class VCardParser:
-	infobox_vcard = "infobox vcard"
-
-	def get_vcards(self, xmldoc):
-		# find the infobox vcard
-		vcards = (table for table in xmldoc.getElementsByTagName("table")\
-				 if "class" in table.attributes.keys() and \
-				table.attributes["class"].value == self.infobox_vcard)
-		return vcards
 
 class DataItem:
 	def __repr__(self):
