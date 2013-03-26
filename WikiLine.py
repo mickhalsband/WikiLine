@@ -65,11 +65,38 @@ class WikiLine:
 	# header is 'Born'
 	# data is the birth date and place
 	def parse_class(self, tr):
+		states = enum(SEARCHING_HEADER=1, SEARCHING_DATA=2, DONE=3)
+		state = states.SEARCHING_HEADER
+		
 		print "tr class : "# + str(tr)
 		for elem in tr.getElementsByTagName("*"):
 			#print "		elem : " + str(elem)
-			if (elem.nodeName == "th" and elem.firstChild != None and elem.firstChild.nodeValue != None):
+			if (state == states.SEARCHING_HEADER and \
+				elem.nodeName == "th" and elem.firstChild != None and elem.firstChild.nodeValue != None):
+				state = states.SEARCHING_DATA
 				print "		header : " + elem.firstChild.nodeValue.encode('utf-8')
+				continue
+				
+			if (state == states.SEARCHING_DATA):
+				#print "calling recurse"
+				res = self.recurseNode(elem)
+				if (res != None and res != ""):
+					print "		" + res.encode('utf-8')
+
+	def recurseNode(self, node):
+		# end recursion
+		if (node.nodeValue != None and node.nodeValue != ""):
+			return node.nodeValue
+		
+		child = node.firstChild
+		while (child != None and child.nodeType != 1):
+			res = self.recurseNode(child)
+			if (res != None):
+				return res
+			child = child.nextSibling
+			
+		return None
+		
 
 	# should actually read the entire tr class
 	# header is 'Born'
@@ -125,14 +152,15 @@ class VCardParser:
 		return vcards
 
 
+
+def enum(**enums):
+	return type('Enum', (), enums)
+
 class Log:
 	product_mode="release"
 
 	def __init__(self):
-		self.log_type = self.enum(INFO="INFO", DEBUG="DEBUG", WARNING="WARN", ERROR="ERROR")
-
-	def enum(self,**enums):
-		return type('Enum', (), enums)
+		self.log_type = enum(INFO="INFO", DEBUG="DEBUG", WARNING="WARN", ERROR="ERROR")
 
 	def do_log(self,type, str):
 		print "***" + type + ": " + str
