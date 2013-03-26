@@ -29,13 +29,13 @@ class WikiLine:
 	def run(self, url):
 		print "Running WikiLine..."
 		page = self.read_article(url)
-		items = WikiParser(page).parse()
+		dict = WikiParser(page).parse()
 
-		for item in items:
+		for item in dict:
 			print str(item)
 
 		timeline = TimelineWriter()
-		timeline.write(items)
+		timeline.write(dict)
 
 #this calls the "main" function when this script is executed
 #"http://en.wikipedia.org/w/index.php?title=Albert_Einstein&printable=yes"

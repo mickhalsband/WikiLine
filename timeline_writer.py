@@ -39,10 +39,9 @@ class TimelineWriter:
 			<locked>False</locked>
 			<ends_today>False</ends_today>
 			<category>Timeline</category>
-		</event>""".format(	start_date = items[0].date,
-							end_date = items[1].date,
+		</event>""".format(	start_date = items["Born"].date,
+							end_date = items["Died"].date,
 							event_name = "Einstein")
-		
 
 	def write(self, items):
 		output = self.compose_xml(items)

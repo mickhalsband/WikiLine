@@ -29,12 +29,12 @@ class WikiParser:
 
 		# find 'Born' values in vcard
 		print "Calling 'parse_class'"
-		items = []
+		items = {}
 		itemsOfIterest = ["Born", "Died"]
 		for tr in vcard.getElementsByTagName("tr"):
 			item = self.parse_class(tr)
 			if (item.name in itemsOfIterest):
-				items.append(item)
+				items[item.name] = item
 				
 		return items
 
