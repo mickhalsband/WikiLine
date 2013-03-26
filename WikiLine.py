@@ -47,25 +47,25 @@ class WikiLine:
 		for title in xmldoc.getElementsByTagName("title"):
 			log("title is: " + title.firstChild.nodeValue, log_type.INFO)
 		
-		# find the infobox vcard
-		infobox_vcard = "infobox vcard"
-		vconf = (table for table in xmldoc.getElementsByTagName("table")\
-				 if "class" in table.attributes.keys() and \
-				table.attributes["class"].value == "infobox vcard")
-				
-		vcard_found = False
-		for table in vconf:
-			vcard_found = True
-			log("table attributes: " + str(table.attributes.keys()))
-			log("table class: " + table.attributes["class"].value)
-			
-			# find 'Born' values in vcard
-			print "Born : " + self.find_born(table)
-					
-		if (not vcard_found):
-			log("No " + infobox_vcard + " in page",log_type.ERROR)
+		vcard_parser = VCardParser()
 
+		# TODO: should assert only one vcard or something, i guess...
+		vcard = vcard_parser.get_vcards(xmldoc).next()
+
+		# find 'Born' values in vcard
+		print "Born : " + self.find_born(vcard)
+							
 		return
+
+	# should actually read the entire tr class
+	# header is 'Born'
+	# data is the birth date and place
+	def parse_class(self, tr_class):
+		states = enum(LOOKING_FOR_TH=1, LOOKING_FOR_TR=2)
+		state = states.LOOKING_FOR_TH
+		
+		print tr_class
+		
 
 	# should actually read the entire tr class
 	# header is 'Born'
@@ -109,6 +109,16 @@ class WikiLine:
 					return bday.firstChild.nodeValue
 	
 				return 0
+
+class VCardParser:
+	infobox_vcard = "infobox vcard"
+
+	def get_vcards(self, xmldoc):
+		# find the infobox vcard
+		vcards = (table for table in xmldoc.getElementsByTagName("table")\
+				 if "class" in table.attributes.keys() and \
+				table.attributes["class"].value == self.infobox_vcard)
+		return vcards
 
 #this calls the "main" function when this script is executed
 #"http://en.wikipedia.org/w/index.php?title=Albert_Einstein&printable=yes"
