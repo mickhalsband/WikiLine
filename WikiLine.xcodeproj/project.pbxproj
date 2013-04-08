@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		00A8FC58171328C90086C0AE /* ggl_map_drawer.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = ggl_map_drawer.py; sourceTree = "<group>"; };
+		00A8FC5917132CE10086C0AE /* pymaps.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = pymaps.py; sourceTree = "<group>"; };
 		00CD09FC16F8F4E2002ED248 /* wiki_line.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = wiki_line.py; sourceTree = "<group>"; };
 		00F928901701FAED00A2B3CC /* README.rdoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.rdoc; sourceTree = "<group>"; };
 		00F9289117021AF200A2B3CC /* log.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = log.py; sourceTree = "<group>"; };
@@ -19,6 +21,8 @@
 		00CD09F116F8F466002ED248 = {
 			isa = PBXGroup;
 			children = (
+				00A8FC5917132CE10086C0AE /* pymaps.py */,
+				00A8FC58171328C90086C0AE /* ggl_map_drawer.py */,
 				00F92894170239D700A2B3CC /* timeline_writer.py */,
 				00F9289317021E4B00A2B3CC /* wiki_parser.py */,
 				00F9289217021BEC00A2B3CC /* utils.py */,
