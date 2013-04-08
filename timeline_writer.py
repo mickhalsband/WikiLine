@@ -45,7 +45,8 @@ class TimelineWriter:
 
 	def write(self, items):
 		output = self.compose_xml(items)
-		print output
-		with open("/Users/mick/timeline_test.timeline", "w") as f:
+		timeline_filename = "/Users/mick/timeline_test.timeline"
+		print "Composing timeline to " + timeline_filename
+		with open(timeline_filename, "w") as f:
 			f.write(output)
 

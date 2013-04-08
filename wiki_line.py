@@ -32,8 +32,8 @@ class WikiLine:
 		page = self.read_article(url)
 		dict = WikiParser(page).parse()
 
-		for item in dict:
-			print str(item)
+		for key, value in dict.items():
+			print "{field}: {date}, {location}".format(field = key, date = value.date, location = value.location)
 
 		timeline = TimelineWriter()
 		timeline.write(dict)
