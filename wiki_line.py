@@ -79,7 +79,7 @@ class WikiLine:
 #this calls the "main" function when this script is executed
 #"http://en.wikipedia.org/w/index.php?title=Albert_Einstein&printable=yes"
 if __name__ == "__main__":
-    url = "http://en.wikipedia.org/w/index.php?title=Albert_Einstein&printable=yes"
+    url = "http://en.wikipedia.org/w/index.php?title=Albert_Einstein"
     if len(sys.argv) < 2:
         sys.exit("Usage: %s [url]" % sys.argv[0])
 
