@@ -7,27 +7,39 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "wiki_line.py",
-			"settings":
-			{
-				"buffer_size": 2495,
-				"line_ending": "Unix"
-			}
-		}
 	],
-	"build_system": "",
+	"build_system": "Packages/Python/Python.sublime-build",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 370.0,
 		"selected_items":
 		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 0.0
+		"width": 602.0
 	},
 	"console":
 	{
-		"height": 125.0
+		"height": 237.0
 	},
 	"distraction_free":
 	{
@@ -40,12 +52,28 @@
 	},
 	"file_history":
 	[
+		"/Users/mick/Library/Application Support/Sublime Text 2/Packages/Default/exec.py",
+		"/Users/mick/Library/Application Support/Sublime Text 2/Packages/Python/Python.sublime-build",
+		"/Users/mick/Dropbox/Development/Python/WikiLine/wiki_line.py",
+		"/Users/mick/Dropbox/Development/Python/WikiLine/wiki_line.",
+		"/Users/mick/Dropbox/Development/Python/WikiLine/wiki_line.sublime-project",
+		"/Users/mick/Dropbox/Development/Python/WikiLine/timeline_writer.py",
+		"/Users/mick/Library/Application Support/Sublime Text 2/Packages/Default/exec.py\n",
+		"/Users/mick/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/Users/mick/Library/Application",
+		"/Users/mick/Support/Sublime",
+		"/Users/mick/Text",
+		"/Users/mick/Dropbox/Development/Python/WikiLine/Property List.plist",
+		"/Users/mick/2/Packages/Python/Python.sublime-build",
+		"/Users/mick/Dropbox/Development/externals/geopy-0.95.1/geopy/geocoders/googlev3.py",
+		"/Users/mick/Dropbox/Development/Python/WikiLine/ggl_map_drawer.py",
+		"/Users/mick/Library/Application Support/Sublime Text 2/Packages/User/sublime-jslint.sublime-settings",
 		"/Users/mick/Library/Application Support/Borderlands 2/WillowGame/Config/WillowEngine.ini",
 		"/Users/mick/Downloads/INI.tmLanguage"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -59,6 +87,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"geocode("
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -76,36 +105,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "wiki_line.py",
-					"settings":
-					{
-						"buffer_size": 2495,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1248,
-								1248
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 322.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -140,6 +141,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 250.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -150,21 +155,37 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"package",
+				"/Users/mick/Library/Application Support/Sublime Text 2/Packages/Python/Python.sublime-build"
+			],
+			[
+				"ggl_map_drawer",
+				"WikiLine/ggl_map_drawer.py"
+			],
+			[
+				"googlev3",
+				"geopy/geocoders/googlev3.py"
+			],
+			[
+				"wiki",
+				"wiki_line.py"
+			]
 		],
 		"width": 0.0
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 219.0,
 	"status_bar_visible": true
 }
