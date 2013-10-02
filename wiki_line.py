@@ -5,6 +5,7 @@ from wiki_parser import WikiParser
 from timeline_writer import TimelineWriter
 import ggl_map_drawer
 from geopy import geocoders
+from subprocess import call
 
 #from subprocess import call
 
@@ -40,8 +41,8 @@ class WikiLine:
 
         #query_string = "10900 Euclid Ave in Cleveland"
         query_string = "Princeton, New Jersey"
-        lat, lng = self.query_location(query_string)
-        self.compose_map_html(lat, lng)
+        #lat, lng = self.query_location(query_string)
+        #self.compose_map_html(lat, lng)
 
     def query_location(self, query_string):
         g = geocoders.GoogleV3()
@@ -81,13 +82,14 @@ class WikiLine:
 if __name__ == "__main__":
     url = "http://en.wikipedia.org/w/index.php?title=Albert_Einstein"
     if len(sys.argv) < 2:
-        sys.exit("Usage: %s [url]" % sys.argv[0])
-
-    url = sys.argv[1]
+        print "Usage: %s [url]" % sys.argv[0]
+    else:
+        print "arg[1] = %s" % sys.argv[1]
+        url = sys.argv[1]
 
     print "Starting world..."
 
-    print "arg[1] = %s" % sys.argv[1]
-
     wikiLine = WikiLine()
     wikiLine.run(url)
+
+    call(["python", "/Users/mick/Development/externals/timeline-0.19.0/timeline.py", "/Users/mick/timeline_test.timeline"])
