@@ -1,11 +1,9 @@
 import urllib2
 import log
-import sys
 from wiki_parser import WikiParser
 from timeline_writer import TimelineWriter
 import ggl_map_drawer
-from geopy import geocoders
-from subprocess import call
+#from geopy import geocoders
 
 #from subprocess import call
 
@@ -76,20 +74,3 @@ class WikiLine:
         """.format(script=map_script)
         with open(map_html_filename, "w") as f:
             f.write(html_str)
-
-#this calls the "main" function when this script is executed
-#"http://en.wikipedia.org/w/index.php?title=Albert_Einstein&printable=yes"
-if __name__ == "__main__":
-    url = "http://en.wikipedia.org/w/index.php?title=Albert_Einstein"
-    if len(sys.argv) < 2:
-        print "Usage: %s [url]" % sys.argv[0]
-    else:
-        print "arg[1] = %s" % sys.argv[1]
-        url = sys.argv[1]
-
-    print "Starting world..."
-
-    wikiLine = WikiLine()
-    wikiLine.run(url)
-
-    call(["python", "/Users/mick/Development/externals/timeline-0.19.0/timeline.py", "/Users/mick/timeline_test.timeline"])
