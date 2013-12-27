@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67b3f92f-f49b-4479-830e-21bfa02419b0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WikiLine.xcodeproj/project.pbxproj" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WikiLine.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WikiLine.xcodeproj/xcuserdata/mick.xcuserdatad/xcschemes/WikiLine.xcscheme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WikiLine.xcodeproj/xcuserdata/mick.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wiki_line.sublime-project" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wiki_line.sublime-workspace" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki_line.py" afterPath="$PROJECT_DIR$/wiki_line.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.kv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WikiLine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,22 +27,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="wiki_line.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="wiki_line.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wiki_line.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="26" selection-end="26" vertical-scroll-proportion="0.08719346" vertical-offset="0" max-vertical-offset="880">
+            <state line="27" column="0" selection-start="755" selection-end="755" vertical-scroll-proportion="0.0" vertical-offset="230" max-vertical-offset="954">
               <folding>
-                <element signature="e#788#1307#0" expanded="false" />
+                <element signature="e#0#14#0" expanded="true" />
                 <element signature="e#1361#1755#0" expanded="false" />
+                <element signature="e#1807#2444#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="16" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="432">
+            <state line="40" column="4" selection-start="1011" selection-end="1011" vertical-scroll-proportion="1.051282" vertical-offset="351" max-vertical-offset="828">
               <folding>
                 <element signature="e#21#37#0" expanded="true" />
               </folding>
@@ -77,6 +73,8 @@
         <option value="$PROJECT_DIR$/../kivy_examples/canvas/lines.py" />
         <option value="$PROJECT_DIR$/wiki_line.py" />
         <option value="$PROJECT_DIR$/WikiLine.xcodeproj/main.py" />
+        <option value="$PROJECT_DIR$/test.kv" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -84,7 +82,7 @@
     <option name="x" value="9" />
     <option name="y" value="22" />
     <option name="width" value="1248" />
-    <option name="height" value="696" />
+    <option name="height" value="691" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -162,12 +160,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GentrificationVille" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -397,18 +395,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="9" y="22" width="1248" height="696" extended-state="0" />
+    <frame x="9" y="22" width="1248" height="691" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15924658" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17306122" sideWeight="0.6857639" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17306122" sideWeight="0.6865149" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39619377" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3142361" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31348512" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -445,36 +443,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/geopy-0.95.pre_r157-py2.7.egg/geopy/geocoders/geonames.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="32" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="1245" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wiki_line.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="33" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="2145">
-          <folding>
-            <element signature="e#788#1307#0" expanded="false" />
-            <element signature="e#1361#1755#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wiki_line.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.0" vertical-offset="1024" max-vertical-offset="1980">
-          <folding>
-            <element signature="e#788#1307#0" expanded="false" />
-            <element signature="e#1361#1755#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="34" selection-start="700" selection-end="700" vertical-scroll-proportion="0.506135" vertical-offset="0" max-vertical-offset="675" />
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/geopy-0.95.1-py2.7.egg/geopy/geocoders/googlev3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="0" selection-start="3426" selection-end="3426" vertical-scroll-proportion="0.8046875" vertical-offset="998" max-vertical-offset="3315" />
@@ -531,21 +499,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/wiki_line.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="16" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="78" max-vertical-offset="432">
+        <state line="27" column="0" selection-start="755" selection-end="755" vertical-scroll-proportion="0.0" vertical-offset="603" max-vertical-offset="954">
           <folding>
-            <element signature="e#21#37#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#1361#1755#0" expanded="false" />
+            <element signature="e#1807#2444#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wiki_line.py">
+    <entry file="file://$PROJECT_DIR$/../kivy_examples/application/app_with_kv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="26" selection-end="26" vertical-scroll-proportion="0.08719346" vertical-offset="0" max-vertical-offset="880">
+        <state line="0" column="0" selection-start="0" selection-end="315" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../kivy_examples/application/template1/test.kv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../kivy_examples/application/test.kv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="364">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.kv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="44" selection-end="44" vertical-scroll-proportion="0.1978022" vertical-offset="0" max-vertical-offset="364">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="4" selection-start="1011" selection-end="1011" vertical-scroll-proportion="1.051282" vertical-offset="351" max-vertical-offset="828">
           <folding>
-            <element signature="e#788#1307#0" expanded="false" />
-            <element signature="e#1361#1755#0" expanded="false" />
+            <element signature="e#21#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
