@@ -11,6 +11,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.app import App
 from kivy.properties import ObjectProperty, StringProperty
 
+import KVMaps
 
 class Controller(FloatLayout):
     """
@@ -62,6 +63,6 @@ def main():
 
     ControllerApp(url).run()
 
-
 if __name__ == '__main__':
-    main()
+    # main()
+    KVMaps.KVMaps().run()
